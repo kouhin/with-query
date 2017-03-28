@@ -4,7 +4,7 @@
   "description": "Format url with query (string or object), simple and fast, with the power of qs",
   "main": "index.js",
   "scripts": {
-    "prepublish": "npm run clean && npm run test",
+    "prepublish": "npm test",
     "pretest": "eslint .",
     "test": "mocha index.test.js",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
