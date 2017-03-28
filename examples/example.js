@@ -1,5 +1,5 @@
 const assert = require('assert');
-const withQuery = require('../index');
+const withQuery = require('../src/index');
 
 const result1 = withQuery('http://example.com', {
   a: 1,
