@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const withQuery = require('./index');
+const withQuery = require('../src');
 
 describe('withQuery()', () => {
   it('Format url with object query', () => {
