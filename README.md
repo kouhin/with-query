@@ -1,5 +1,4 @@
-with-query
-=======
+# <a href='https://github.com/kouhin/with-query'><img src='https://cloud.githubusercontent.com/assets/5006663/24417156/3d916d36-1422-11e7-85a4-ebd3d6620d46.png' height='60'></a>
 
 Format url with query (string or object), simple and fast, with the power of [qs](https://github.com/ljharb/qs).
 
