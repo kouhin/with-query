@@ -1,0 +1,40 @@
+{
+  "name": "with-query",
+  "version": "1.0.0",
+  "description": "Format url with query (string or object), simple and fast, with the power of qs",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "npm run clean && npm run test",
+    "pretest": "eslint .",
+    "test": "mocha index.test.js",
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kouhin/with-query.git"
+  },
+  "keywords": [
+    "query",
+    "url",
+    "format",
+    "fetch",
+    "parse",
+    "stringify"
+  ],
+  "author": "Bin Hou <houbin217jz@gmail.com> (https://twitter.com/houbin217jz)",
+  "license": "MIT",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "chai": "^3.5.0",
+    "coveralls": "^2.12.0",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb-base": "^11.1.2",
+    "eslint-plugin-import": "^2.2.0",
+    "mocha": "^3.2.0",
+    "nyc": "^10.2.0"
+  },
+  "dependencies": {
+    "object-assign": "^4.1.1",
+    "qs": "^6.4.0"
+  }
+}
