@@ -1,6 +1,6 @@
 {
   "name": "with-query",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Format url with query (string or object), simple and fast, with the power of qs",
   "main": "lib/index.js",
   "scripts": {
