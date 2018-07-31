@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  parser: 'babel-eslint',
   extends: [
     'eslint-config-airbnb-base',
     'plugin:jest/recommended',
@@ -7,10 +8,7 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 6,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true
-    }
+    sourceType: 'module'
   },
   env: {
     browser: true,
