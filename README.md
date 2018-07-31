@@ -11,7 +11,7 @@ The typical usage of this library is building URL for [Fetch API](https://fetch.
 [![airbnb style](https://img.shields.io/badge/code_style-airbnb-blue.svg)](https://github.com/airbnb/javascript)
 
 ``` javascript
-const withQuery = require('with-query');
+const withQuery = require('with-query').default;
 
 fetch(withQuery('https://api.github.com/search/repositories', {
   q: 'query',
@@ -44,7 +44,7 @@ yarn add with-query
 ## Usage
 
 ``` javascript
-var withQuery = require('with-query');
+var withQuery = require('with-query').default;
 var assert = require('assert');
 
 const result1 = withQuery('http://example.com', {
