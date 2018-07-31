@@ -24,20 +24,17 @@ function withQuery(url, query, opts) {
   // query
   if (originalUrl.indexOf('?') !== -1) {
     const parts = baseUrl.split('?');
-    baseUrl = parts[0];
-    baseQuery = parts[1];
+    [baseUrl, baseQuery] = parts;
   }
 
   // hash
   if (originalUrl.indexOf('#') !== -1) {
     if (baseUrl.indexOf('#') !== -1) {
       const parts = baseUrl.split('#');
-      baseUrl = parts[0];
-      baseHash = parts[1];
+      [baseUrl, baseHash] = parts;
     } else if (baseQuery && baseQuery.indexOf('#') !== -1) {
       const parts = baseQuery.split('#');
-      baseQuery = parts[0];
-      baseHash = parts[1];
+      [baseQuery, baseHash] = parts;
     } else {
       // noop
     }
@@ -45,8 +42,13 @@ function withQuery(url, query, opts) {
 
   const baseQueryObj = parseQuery(baseQuery, parseOpt);
   const queryObj = parseQuery(query, parseOpt);
-  const finalQuery = qs.stringify(objectAssign({}, baseQueryObj, queryObj), stringifyOpt);
-  return `${baseUrl}${finalQuery ? `?${finalQuery}` : ''}${!noHash && baseHash ? `#${baseHash}` : ''}`;
+  const finalQuery = qs.stringify(
+    objectAssign({}, baseQueryObj, queryObj),
+    stringifyOpt
+  );
+  return `${baseUrl}${finalQuery ? `?${finalQuery}` : ''}${
+    !noHash && baseHash ? `#${baseHash}` : ''
+  }`;
 }
 exports = withQuery;
 module.exports = exports;
