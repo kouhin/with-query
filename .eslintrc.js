@@ -1,6 +1,10 @@
 module.exports = {
   root: true,
-  extends: ['eslint-config-airbnb-base', 'plugin:prettier/recommended'],
+  extends: [
+    'eslint-config-airbnb-base',
+    'plugin:jest/recommended',
+    'plugin:prettier/recommended'
+  ],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
@@ -13,5 +17,5 @@ module.exports = {
     node: true,
     es6: true
   },
-  plugins: ['import']
+  plugins: ['import', 'jest']
 };

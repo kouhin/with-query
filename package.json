@@ -1,6 +1,6 @@
 {
   "name": "with-query",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Format url with query (string or object), simple and fast, with the power of qs",
   "source": "src/index.js",
   "module": "dist/with-query.es.js",
@@ -15,8 +15,8 @@
     "build:umd": "cross-env BABEL_ENV=es NODE_ENV=development rollup -c -f umd -o dist/with-query.umd.js",
     "build:umd:min": "cross-env BABEL_ENV=es NODE_ENV=production rollup -c -f umd -o dist/with-query.umd.min.js",
     "build": "npm-run-all -p build:commonjs build:es build:umd build:umd:min",
-    "test": "mocha test/*.test.js",
-    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "test": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -42,19 +42,22 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.55",
     "assert": "^1.4.1",
+    "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.6",
-    "chai": "^4.1.2",
+    "babel-jest": "^23.4.2",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "13.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jest": "^21.18.0",
     "eslint-plugin-prettier": "^2.6.2",
-    "mocha": "^5.2.0",
+    "jest": "^23.4.2",
     "npm-run-all": "^4.1.3",
     "nyc": "^12.0.2",
     "prettier": "^1.14.0",
+    "regenerator-runtime": "^0.12.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.63.4",
     "rollup-plugin-auto-external": "^2.0.0",
@@ -67,5 +70,10 @@
   "dependencies": {
     "object-assign": "^4.1.1",
     "qs": "^6.5.2"
+  },
+  "jest": {
+    "testRegex": "(/test/.*\\.spec.js)$",
+    "verbose": true,
+    "testURL": "http://localhost/"
   }
 }

@@ -4,7 +4,7 @@ Format url with query (string or object), simple and fast, with the power of [qs
 
 The typical usage of this library is building URL for [Fetch API](https://fetch.spec.whatwg.org). It can be used both on server side and browser side.
 
-[![CircleCI](https://img.shields.io/circleci/project/github/kouhin/with-query.svg)](https://circleci.com/gh/kouhin/with-query/tree/master)
+[![CircleCI](https://circleci.com/gh/kouhin/with-query/tree/master.svg?style=svg)](https://circleci.com/gh/kouhin/with-query/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/kouhin/with-query/badge.svg?branch=master)](https://coveralls.io/github/kouhin/with-query?branch=master)
 [![npm](https://img.shields.io/npm/v/with-query.svg)](https://www.npmjs.com/package/with-query)
 [![dependency status](https://david-dm.org/kouhin/with-query.svg?style=flat-square)](https://david-dm.org/kouhin/with-query)

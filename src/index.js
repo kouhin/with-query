@@ -1,5 +1,5 @@
-const qs = require('qs');
-const objectAssign = require('object-assign');
+import qs from 'qs';
+import objectAssign from 'object-assign';
 
 function parseQuery(q, opt) {
   if (typeof q === 'object') {
@@ -8,7 +8,7 @@ function parseQuery(q, opt) {
   return q ? qs.parse(q, opt) : {};
 }
 
-function withQuery(url, query, opts) {
+export default function withQuery(url, query, opts) {
   if (!query || (typeof query === 'object' && Object.keys(query).length < 1)) {
     return url;
   }
@@ -50,5 +50,3 @@ function withQuery(url, query, opts) {
     !noHash && baseHash ? `#${baseHash}` : ''
   }`;
 }
-exports = withQuery;
-module.exports = exports;
