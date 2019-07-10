@@ -1,7 +1,7 @@
 {
   "name": "with-query",
   "description": "Format url with query (string or object), simple and fast, with the power of qs",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "author": "Bin Hou <houbin217jz@gmail.com> (https://twitter.com/houbin217jz)",
   "dependencies": {
     "qs": "^6.7.0"
