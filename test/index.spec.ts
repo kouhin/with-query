@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import withQuery from '../src';
 
 describe('withQuery()', () => {
@@ -65,13 +66,13 @@ describe('withQuery()', () => {
     expect(withQuery('http://www.example.com?c=456#Anchor')).toEqual(
       'http://www.example.com?c=456#Anchor'
     );
-    expect(withQuery('http://www.example.com?', null)).toEqual(
+    expect(withQuery('http://www.example.com?')).toEqual(
       'http://www.example.com?'
     );
     expect(withQuery('http://www.example.com', undefined)).toEqual(
       'http://www.example.com'
     );
-    expect(withQuery('http://www.example.com/', false)).toEqual(
+    expect(withQuery('http://www.example.com/', false as any)).toEqual(
       'http://www.example.com/'
     );
     expect(withQuery('http://www.example.com?', {})).toEqual(
@@ -130,13 +131,13 @@ describe('withQuery()', () => {
     );
   });
   it('When query is a single value, and it is not a string, qs will format string as expected', () => {
-    expect(withQuery('http://www.example.com?a=2', 123)).toEqual(
+    expect(withQuery('http://www.example.com?a=2', 123 as any)).toEqual(
       'http://www.example.com?a=2'
     );
-    expect(withQuery('http://www.example.com?a=2', true)).toEqual(
+    expect(withQuery('http://www.example.com?a=2', true as any)).toEqual(
       'http://www.example.com?a=2'
     );
-    expect(withQuery('http://www.example.com', true)).toEqual(
+    expect(withQuery('http://www.example.com', true as any)).toEqual(
       'http://www.example.com'
     );
   });

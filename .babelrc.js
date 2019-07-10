@@ -6,6 +6,7 @@ module.exports = {
         modules: process.env.NODE_ENV === 'test' ? 'commonjs' : false,
         loose: true
       }
-    ]
+    ],
+    '@babel/preset-typescript'
   ]
 };

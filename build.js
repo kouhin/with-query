@@ -1,4 +1,5 @@
-/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
+/* eslint  @typescript-eslint/no-var-requires:0, @typescript-eslint/camelcase: 0, import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
+
 const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
 const { uglify } = require('rollup-plugin-uglify');
@@ -15,16 +16,20 @@ const NAME = pkg.name
   .map(s => s.charAt(0).toUpperCase() + s.slice(1))
   .join('');
 
+const extensions = ['.js', '.jsx', '.ts', '.tsx'];
+
 function createOptions(format, outputPath, minify) {
   return {
     inputOptions: {
       input: pkg.source,
       plugins: [
-        babel({
-          exclude: 'node_modules/**'
-        }),
         resolve({
-          jsnext: true
+          extensions
+        }),
+        autoExternal(),
+        babel({
+          exclude: 'node_modules/**',
+          extensions
         }),
         commonjs({
           include: /node_modules/
@@ -32,14 +37,13 @@ function createOptions(format, outputPath, minify) {
         replace({
           'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         }),
-        autoExternal(),
+
         minify
           ? uglify({
               compress: {
                 pure_getters: true,
                 unsafe: true,
-                unsafe_comps: true,
-                warnings: false
+                unsafe_comps: true
               }
             })
           : null
@@ -52,7 +56,7 @@ function createOptions(format, outputPath, minify) {
       indent: false,
       exports: 'named',
       globals: {
-        react: 'React'
+        qs: 'qs'
       }
     }
   };

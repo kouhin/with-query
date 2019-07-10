@@ -1,3 +1,4 @@
+/* eslint-disable */
 const assert = require('assert');
 const withQuery = require('../dist/with-query').default;
 
