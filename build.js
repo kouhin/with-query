@@ -12,8 +12,8 @@ const pkg = require('./package.json');
 
 const NAME = pkg.name
   .split(/-|_/)
-  .filter(x => x)
-  .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+  .filter((x) => x)
+  .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
   .join('');
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
@@ -24,18 +24,18 @@ function createOptions(format, outputPath, minify) {
       input: pkg.source,
       plugins: [
         resolve({
-          extensions
+          extensions,
         }),
         autoExternal(),
         babel({
           exclude: 'node_modules/**',
-          extensions
+          extensions,
         }),
         commonjs({
-          include: /node_modules/
+          include: /node_modules/,
         }),
         replace({
-          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
         }),
 
         minify
@@ -43,11 +43,11 @@ function createOptions(format, outputPath, minify) {
               compress: {
                 pure_getters: true,
                 unsafe: true,
-                unsafe_comps: true
-              }
+                unsafe_comps: true,
+              },
             })
-          : null
-      ].filter(x => x)
+          : null,
+      ].filter((x) => x),
     },
     outputOptions: {
       file: outputPath,
@@ -56,9 +56,9 @@ function createOptions(format, outputPath, minify) {
       indent: false,
       exports: 'named',
       globals: {
-        qs: 'qs'
-      }
-    }
+        qs: 'qs',
+      },
+    },
   };
 }
 
@@ -76,10 +76,10 @@ function generateMinPath(p) {
       { format: 'es', outputPath: module },
       { format: 'cjs', outputPath: main },
       { format: 'umd', outputPath: umd },
-      { format: 'umd', outputPath: generateMinPath(umd), minify: true }
+      { format: 'umd', outputPath: generateMinPath(umd), minify: true },
     ]
-      .filter(o => o.outputPath)
-      .map(async build => {
+      .filter((o) => o.outputPath)
+      .map(async (build) => {
         const { format, outputPath, minify } = build;
         const { inputOptions, outputOptions } = createOptions(
           format,
