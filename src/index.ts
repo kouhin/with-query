@@ -14,7 +14,7 @@ function parseQuery(q: object | string, opt?: qs.IParseOptions): object {
 }
 
 export function withQuery(
-  url: string | null = '',
+  url: string | null | undefined,
   query?: object | string,
   opts?: WithQueryOptions
 ): string {
@@ -58,7 +58,7 @@ export function withQuery(
   const finalQuery = qs.stringify(
     {
       ...baseQueryObj,
-      ...queryObj
+      ...queryObj,
     },
     stringifyOpt
   );

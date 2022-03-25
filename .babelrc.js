@@ -4,9 +4,9 @@ module.exports = {
       '@babel/preset-env',
       {
         modules: process.env.NODE_ENV === 'test' ? 'commonjs' : false,
-        loose: true
-      }
+        loose: true,
+      },
     ],
-    '@babel/preset-typescript'
-  ]
+    '@babel/preset-typescript',
+  ],
 };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line
 import withQuery from '../src';
 
@@ -6,7 +7,7 @@ describe('withQuery()', () => {
     expect(
       withQuery('http://www.example.com', {
         a: 123,
-        b: 'hello'
+        b: 'hello',
       })
     ).toEqual('http://www.example.com?a=123&b=hello');
   });
@@ -21,7 +22,7 @@ describe('withQuery()', () => {
     expect(
       withQuery('http://www.example.com?c=456', {
         a: 123,
-        b: 'hello'
+        b: 'hello',
       })
     ).toEqual('http://www.example.com?c=456&a=123&b=hello');
   });
@@ -36,13 +37,13 @@ describe('withQuery()', () => {
     expect(
       withQuery('http://www.example.com?c=456#Anchor', {
         a: 123,
-        b: 'hello'
+        b: 'hello',
       })
     ).toEqual('http://www.example.com?c=456&a=123&b=hello#Anchor');
     expect(
       withQuery('http://www.example.com#Anchor?c=456', {
         a: 123,
-        b: 'hello'
+        b: 'hello',
       })
     ).toEqual('http://www.example.com?c=456&a=123&b=hello#Anchor');
   });
@@ -90,8 +91,8 @@ describe('withQuery()', () => {
         { abc: 123 },
         {
           parseOpt: {
-            delimiter: /[;,]/
-          }
+            delimiter: /[;,]/,
+          },
         }
       )
     ).toEqual('http://www.example.com?a=b&c=d&abc=123');
@@ -106,8 +107,8 @@ describe('withQuery()', () => {
         { abc: 123 },
         {
           stringifyOpt: {
-            encode: false
-          }
+            encode: false,
+          },
         }
       )
     ).toEqual('http://www.example.com?a=b;c=d&abc=123');
@@ -116,7 +117,7 @@ describe('withQuery()', () => {
   it('opts.noHash = true will remove hash', () => {
     expect(
       withQuery('http://www.example.com?c=456#Anchor', 'a=123&b=hello', {
-        noHash: true
+        noHash: true,
       })
     ).toEqual('http://www.example.com?c=456&a=123&b=hello');
   });

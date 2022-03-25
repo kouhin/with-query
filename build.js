@@ -1,4 +1,4 @@
-/* eslint  @typescript-eslint/no-var-requires:0, @typescript-eslint/camelcase: 0, import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
+/* eslint  @typescript-eslint/no-var-requires:0, import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
